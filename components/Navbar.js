@@ -65,7 +65,7 @@ export default function Navbar() {
             
             </div>
         </div>
-        {isOpen ? <FullPageNav isOpen = {isOpen} /> : null}
+        {isOpen ? <FullPageNav isOpen = {isOpen} setIsOpen = {setIsOpen} /> : null}
     </nav>
   )
 }

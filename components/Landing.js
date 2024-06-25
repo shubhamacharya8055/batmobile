@@ -134,7 +134,7 @@ function Landing() {
 
        {HERO_VIDEO.map((item, index) => (
          <video key={item.p1}
-         className={`absolute top-0 right-0 min-w-full z-0  h-[800px] object-cover object-right-top ${activeIndex === index ? "block" : "hidden" }`}
+         className={`absolute top-0 right-0 min-w-full z-0  h-[800px] object-cover xl:object-cover object-center xl:object-right-top ${activeIndex === index ? "block" : "hidden" }`}
          autoPlay
          loop
          muted

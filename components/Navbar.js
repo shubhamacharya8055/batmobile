@@ -3,14 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, Search, X } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import FullPageNav from "./FullPageNav";
+import Industries from "./Industries";
+import gsap from "gsap";
 
 
 export default function Navbar() {
 
+  const industriesRef = useRef()
   const [isOpen, setIsOpen] = useState(false);
+  const [showIndustriesComponent, setShowIndustriesComponent] = useState(false)
 
   return (
     <nav className="sticky z-[100] text-darkBlue inset-x-0 top-0 w-full backdrop-blur-lg transition-all px-10 h-20 py bg-white min-w-full shadow-sm
@@ -43,6 +47,18 @@ export default function Navbar() {
                                 element.scrollIntoView({ behavior: 'smooth' }); 
                             }
                         }}
+                        onMouseEnter={(e) => {
+                            const targetId = e.target.href.split("/").pop().split("#").pop()
+                            if(targetId !== "industries") return
+                            gsap.from(industriesRef.current , {
+                                y:300 , 
+                                opacity: 0 , 
+                                duration: 0.7 ,
+                                onComplete: () => {
+                                    setShowIndustriesComponent(true)
+                                }   
+                            })
+                        }}
                         >
                         {nav.label}
                         </Link>
@@ -66,6 +82,24 @@ export default function Navbar() {
             </div>
         </div>
         {isOpen ? <FullPageNav isOpen = {isOpen} setIsOpen = {setIsOpen} /> : null}
+        {showIndustriesComponent && (
+            <div
+            ref={industriesRef}
+            className="bg-white min-w-screen h-screen z-[999999] absolute top-[100px] no-scrollbar pb-24 inset-0 overflow-y-scroll"
+            onMouseLeave={() => {
+                gsap.to(industriesRef.current , {
+                    y: 300 , 
+                    opacity: 0 , 
+                    duration: 0.8, 
+                    onComplete: () => {
+                        setShowIndustriesComponent(false)
+                    }
+                })
+            }}
+            >
+                <Industries />
+            </div>
+        )}
     </nav>
   )
 }

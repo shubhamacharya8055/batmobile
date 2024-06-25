@@ -20,13 +20,22 @@ export default function Partners() {
     setActiveDot(activeIndex);
   };
 
+  const handleDotClick = (index) => {
+    const container = containerRef.current;
+    if (index === 0) {
+      container.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      container.scrollTo({ left: container.scrollWidth, behavior: "smooth" });
+    }
+  };
+
 
   return (
     <div className="min-w-full xl:min-h-52 min-h-32 relative">
         <div
          ref={containerRef}
          onScroll={handleScroll}
-        className="h-full mx-auto xl:w-[80%] flex gap-x-10 items-center xl:my-16 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar   ">
+        className="h-full mx-auto xl:w-[80%] flex gap-x-5 items-center xl:my-16 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar   ">
                 {PARTNERS.map((partner, index) => (
                 <div className="relative xl:min-w-[150px] min-w-[120px]" 
                 key={`${partner}-${index}`}
@@ -45,7 +54,8 @@ export default function Partners() {
         {[0, 1].map((dot) => (
           <div
             key={dot}
-            className={`w-3 h-3 border border-black rounded-full ${activeDot === dot ? 'bg-gray-500' : 'bg-white'}`}
+            onClick={() => handleDotClick(dot)}
+            className={`w-3 h-3 border border-black cursor-pointer rounded-full ${activeDot === dot ? 'bg-gray-500' : 'bg-white'}`}
           />
         ))}
       </div>

@@ -18,7 +18,7 @@ export default function Footer() {
 
             <div className="w-full flex xl:flex-row flex-col gap-y-8 justify-between">
 
-                <div className="relative xl:w-1/4 w-full cursor-pointer"
+                <div className="relative xl:w-1/4 w-1/5  cursor-pointer"
                 onClick={scrollToTop}
                 >
                     <Image

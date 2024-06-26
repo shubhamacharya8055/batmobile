@@ -41,13 +41,13 @@ export default function Partners() {
 
   return (
     <div 
-      className="min-w-full xl:min-h-52 min-h-32 relative"
+      className="min-w-full xl:min-h-fit min-h-fit relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div 
         ref={containerRef}
-        className="h-full mx-auto xl:w-[80%] flex gap-x-5 items-center xl:my-16 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar"
+        className="h-fit mx-auto xl:w-[80%] flex gap-x-5 items-center xl:my-10 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar"
       >
         {PARTNERS.map((partner, index) => (
           <div 

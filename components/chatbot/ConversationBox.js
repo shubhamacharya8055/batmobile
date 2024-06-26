@@ -9,18 +9,81 @@ function ConversationBox({ isOpen, setIsOpen }) {
     const [userInput, setUserInput] = useState('');
     const [chatMessages, setChatMessages] = useState(initialMessages);
     const inputRef = useRef(null);
+    const nameRegex = /^[a-zA-Z]+$/;
 
     useEffect(() => {
+    const currentHour = new Date().getHours();
+    const greeting = currentHour < 12 ? 'Good morning' : currentHour < 18 ? 'Good afternoon' : 'Good evening';
+
+    setChatMessages([{ from: 'bot', text: `${greeting}! What's your name?` }]);
         inputRef.current?.focus(); 
       }, [isOpen]); 
     
-      const handleSubmit = (e) => {
+    //   const handleSubmit = (e) => {
+    //     e.preventDefault();
+    
+    //     if (!userInput.trim()) return; 
+    
+    //     setChatMessages([...chatMessages, { from: 'user', text: userInput }]);
+    
+    //     if (emailRegex.test(userInput)) {
+    //       setTimeout(() => {
+    //         setChatMessages([
+    //           ...chatMessages,
+    //           { from: 'user', text: userInput },
+    //           { from: 'bot', text: 'Thank you for your email. Have a good day!' },
+    //         ]);
+    //         setTimeout(() => {
+    //           setIsOpen(false); // Close after a delay
+    //         }, 1500);
+    //       }, 1000); // Delay before bot responds
+    //     } else {
+    //       setTimeout(() => {
+    //         setChatMessages([
+    //           ...chatMessages,
+    //           { from: 'user', text: userInput },
+    //           { from: 'bot', text: 'Incorrect email. Please provide a valid email.' },
+    //         ]);
+    //       }, 500); // Faster response for incorrect email
+    //     }
+    
+    //     setUserInput(''); 
+    //   };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
     
-        if (!userInput.trim()) return; 
+        if (!userInput.trim()) return; // Ignore empty input
     
         setChatMessages([...chatMessages, { from: 'user', text: userInput }]);
     
+        const lastBotMessage = chatMessages.findLast(msg => msg.from === 'bot');
+        const isAskingForEmail = lastBotMessage && lastBotMessage.text.includes('email');
+    
+        if (isAskingForEmail) {
+          handleEmailInput();
+        } else if (nameRegex.test(userInput)) {
+          setTimeout(() => {
+            setChatMessages([
+              ...chatMessages,
+              { from: 'user', text: userInput },
+              { from: 'bot', text: `Hi ${userInput}! Please provide your email.` },
+            ]);
+          }, 1000); 
+        } else {
+          setTimeout(() => {
+            setChatMessages([
+              ...chatMessages,
+              { from: 'user', text: userInput },
+              { from: 'bot', text: 'Please enter a correct name with only alphabets.' },
+            ]);
+          }, 500); 
+        }
+    
+        setUserInput('');
+      };
+
+      const handleEmailInput = () => {
         if (emailRegex.test(userInput)) {
           setTimeout(() => {
             setChatMessages([
@@ -29,9 +92,9 @@ function ConversationBox({ isOpen, setIsOpen }) {
               { from: 'bot', text: 'Thank you for your email. Have a good day!' },
             ]);
             setTimeout(() => {
-              setIsOpen(false); // Close after a delay
+              setIsOpen(false);
             }, 1500);
-          }, 1000); // Delay before bot responds
+          }, 1000);
         } else {
           setTimeout(() => {
             setChatMessages([
@@ -39,10 +102,8 @@ function ConversationBox({ isOpen, setIsOpen }) {
               { from: 'user', text: userInput },
               { from: 'bot', text: 'Incorrect email. Please provide a valid email.' },
             ]);
-          }, 500); // Faster response for incorrect email
+          }, 500);
         }
-    
-        setUserInput(''); 
       };
 
   return (

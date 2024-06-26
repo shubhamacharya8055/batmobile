@@ -86,8 +86,8 @@ export default function Rise() {
                 >
                     Rise
                 </h1>
-                <p className="text-darkBlue w-fit xl:w-5/6" ref={paragraphRef}>
-                At Tech Mahindra, Rise is our core brand pillar that goes beyond business. It underscores our entire organizations culture and how we inspire our employees, stakeholders, and communities to uphold the three core tenets of this philosophy – Rise for an equal world, to be future-ready, and to create value.
+                <p className="text-darkBlue w-fit xl:w-5/6 first-letter:text-xl" ref={paragraphRef}>
+               <span className="font-semibold"> Batmobile </span> is a global technology leader, trusted by businesses of all sizes to build a strong foundation for growth. We offer a comprehensive suite of business solutions and integrations, designed to streamline operations, enhance efficiency, and drive innovation.We have a deep understanding of diverse industries and the challenges they face. 
                 </p>
                 <button ref={buttonRef} className="text-sm w-fit font-medium hover:text-darkBlue text-teal mt-10" >
                 LEARN MORE

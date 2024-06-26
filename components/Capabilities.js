@@ -73,7 +73,8 @@ export default function Capabilities() {
             <div className="flex flex-col xl:flex-row gap-y-5 items-start justify-center" ref={capRef}>
                 <p className="flex-1 xl:text-5xl text-3xl font-semibold">Capabilities</p>
                 <p className="flex-1 text-lg leading-8">
-                We offer a wide range of digital solutions and best-in-class platforms to deliver meaningful outcomes, enhance customer experiences, and transform industries at scale and with unparalleled speed.
+                {/* We offer a wide range of digital solutions and best-in-class platforms to deliver meaningful outcomes, enhance customer experiences, and transform industries at scale and with unparalleled speed. */}
+                We prioritize your success. Our dedicated team works closely with you to understand your unique needs and develop customized solutions that meet your specific requirements.
                 </p>
             </div>
 

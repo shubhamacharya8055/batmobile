@@ -80,10 +80,16 @@ function Landing() {
   return (
     <div className="relative min-h-[885px] min-w-[100%] overflow-hidden" ref={landRef} id="mahindra">
         <div className="flex flex-col w-fit xl:h-[300px] xl:w-[840px] xl:gap-y-5 gap-y-3 px-10 py-4">
-            <h1 ref={titleRef} className="xl:text-8xl text-4xl font-normal xl:font-semibold  text-darkBlue tracking-tight">Scale at Speed</h1>
+            <h1 ref={titleRef} className="xl:text-7xl text-4xl font-normal xl:font-semibold  text-darkBlue tracking-tight">
+              {/* Scale at Speed */}
+              Power Your Future
+              </h1>
             <p ref={paragraphRef}
             className="xl:text-lg text-[13px] leading-5 text-darkBlue/90"
-            >Our promise to help enterprises across industries transform at speed and bring agility, resilience, and efficiency to their businesses.</p>
+            >
+              {/* Our promise to help enterprises across industries transform at speed and bring agility, resilience, and efficiency to their businesses. */}
+              Batmobile utilizes the latest advancements in technology, including AI, machine learning, and data analytics, to deliver powerful insights and drive decision-making.
+              </p>
         </div>
 
         <div className="absolute z-[70] text-white xl:right-32 xl:bottom-32 bottom-56 right-10">

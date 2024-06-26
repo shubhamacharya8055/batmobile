@@ -104,7 +104,7 @@ export default function Scale() {
                 <div className="flex flex-col xl:gap-y-10 gap-y-6 w-full col-span-2 xl:col-span-1">
 
                 <div className="flex flex-col gap-y-3 w-full" >
-                    <h1 className="xl:text-7xl text-4xl text-darkBlue flex-1font-medium xl:font-semibold" ref={ScaleRef}>Scale at Speed</h1>
+                    <h1 className="xl:text-7xl text-4xl text-darkBlue flex-1font-medium xl:font-semibold" ref={ScaleRef}>Transform Your Business</h1>
                     <div ref={BatRef} className="flex gap-x-2 flex-row xl:flex-col">
                     <h2 className="xl:text-7xl text-3xl text-teal font-semibold" >with Bat</h2>
                     <h3 className="xl:text-7xl text-3xl text-teal/70 font-semibold" >Mobile</h3>
@@ -121,7 +121,7 @@ export default function Scale() {
                 ref={blackBoxRef}
                 >
                     <div className="w-1/2 text-white  mx-auto flex flex-col items-start gap-y-10">
-                        <p className="text-base font-semibold ">Scale at Speed</p>
+                        <p className="text-base font-semibold "> Power Your Future</p>
                         <h2 className="xl:text-3xl text-2xl font-medium leading-10">True Scalability, <br/>
                         Agility, and <br />
                         Responsiveness

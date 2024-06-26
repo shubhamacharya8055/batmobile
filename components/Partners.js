@@ -5,73 +5,53 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Partners() {
   const containerRef = useRef(null);
-  const [activeDot, setActiveDot] = useState(0);
-  let scrollSpeed = 10;
+  const [isScrolling, setIsScrolling] = useState(true);
+  const [scrollDirection, setScrollDirection] = useState(1); 
 
   useEffect(() => {
     let scrollInterval;
 
     function startAutoScroll() {
       scrollInterval = setInterval(() => {
-        if (containerRef.current) {
+        if (containerRef.current && isScrolling) {
           const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+          const scrollAmount = 10 * scrollDirection;
 
-          const progress = scrollLeft / (scrollWidth - clientWidth);
-          setActiveDot(progress >= 0.5 ? 1 : 0);
+          const atEnd = scrollLeft + clientWidth >= scrollWidth && scrollDirection === 1;
+          const atStart = scrollLeft === 0 && scrollDirection === -1;
 
-          // Check for scroll direction change
-          if (
-            scrollLeft + clientWidth >= scrollWidth ||
-            scrollLeft === 0 // Added check for reaching the beginning
-          ) {
-            scrollSpeed *= -1; // Reverse scroll direction
+          if (atEnd || atStart) {
+            setScrollDirection(scrollDirection * -1); 
+          } else {
+            containerRef.current.scrollTo({
+              left: scrollLeft + scrollAmount,
+              behavior: "smooth",
+            });
           }
-
-          containerRef.current.scrollTo({
-            left: scrollLeft + scrollSpeed,
-            behavior: "smooth",
-          });
         }
-      }, 50);
+      }, 50); 
     }
 
     startAutoScroll();
     return () => clearInterval(scrollInterval);
-  }, []);
+  }, [isScrolling, scrollDirection]); 
 
-  const handleDotClick = (index) => {
-    setActiveDot(index);
-    if (containerRef.current) {
-      const animateScroll = () => {
-        if (!containerRef.current) return;
-
-        const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-        const targetLeft = index === 0 ? 0 : scrollWidth - clientWidth;
-        const newLeft =
-          index === 0 ? scrollLeft - scrollSpeed : scrollLeft + scrollSpeed;
-
-        if (
-          (index === 0 && newLeft > 0) ||
-          (index === 1 && newLeft < targetLeft)
-        ) {
-          containerRef.current.scrollTo({ left: newLeft, behavior: "auto" });
-          requestAnimationFrame(animateScroll); // Continue animation
-        }
-      };
-
-      requestAnimationFrame(animateScroll); // Start animation
-    }
-  };
+  const handleMouseEnter = () => setIsScrolling(false);
+  const handleMouseLeave = () => setIsScrolling(true);
 
   return (
-    <div className="min-w-full xl:min-h-52 min-h-32 relative">
-      <div
+    <div 
+      className="min-w-full xl:min-h-52 min-h-32 relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div 
         ref={containerRef}
-        className="h-full mx-auto xl:w-[80%] flex gap-x-5 items-center xl:my-16 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar   "
+        className="h-full mx-auto xl:w-[80%] flex gap-x-5 items-center xl:my-16 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar"
       >
         {PARTNERS.map((partner, index) => (
-          <div
-            className="relative xl:min-w-[150px] min-w-[120px]"
+          <div 
+            className="relative xl:min-w-[150px] min-w-[120px]" 
             key={`${partner}-${index}`}
           >
             <Image
@@ -79,19 +59,9 @@ export default function Partners() {
               width={150}
               height={150}
               className="object-cover"
+              alt={`Partner Logo ${index + 1}`} 
             />
           </div>
-        ))}
-      </div>
-      <div className="absolute xl:bottom-20 bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-        {[0, 1].map((dot) => (
-          <div
-            key={dot}
-            onClick={() => handleDotClick(dot)}
-            className={`w-3 h-3 border border-black cursor-pointer rounded-full ${
-              activeDot === dot ? "bg-gray-500" : "bg-white"
-            }`}
-          />
         ))}
       </div>
     </div>

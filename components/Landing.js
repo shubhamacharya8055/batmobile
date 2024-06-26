@@ -79,8 +79,8 @@ function Landing() {
 
   return (
     <div className="relative min-h-[885px] min-w-[100%] overflow-hidden" ref={landRef} id="mahindra">
-        <div className="flex flex-col w-fit xl:h-[300px] xl:w-[840px] xl:gap-y-5 gap-y-3 px-10 py-4">
-            <h1 ref={titleRef} className="xl:text-7xl text-4xl font-normal xl:font-semibold  text-darkBlue tracking-tight">
+        <div className="flex flex-col w-fit xl:h-[300px] xl:w-[840px] xl:gap-y-5 gap-y-3 px-10 py-4 ">
+            <h1 ref={titleRef} className="mt-14 xl:mt-0 xl:text-7xl text-4xl font-bold xl:font-semibold  text-darkBlue tracking-tight">
               {/* Scale at Speed */}
               Power Your Future
               </h1>

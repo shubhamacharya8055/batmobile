@@ -104,7 +104,7 @@ export default function Scale() {
                 <div className="flex flex-col xl:gap-y-10 gap-y-6 w-full col-span-2 xl:col-span-1">
 
                 <div className="flex flex-col gap-y-3 w-full" >
-                    <h1 className="xl:text-7xl text-4xl text-darkBlue flex-1font-medium xl:font-semibold" ref={ScaleRef}>Transform Your Business</h1>
+                    <h1 className="xl:text-7xl text-4xl text-darkBlue flex-1 font-bold xl:font-semibold" ref={ScaleRef}>Transform Your Business</h1>
                     <div ref={BatRef} className="flex gap-x-2 flex-row xl:flex-col">
                     <h2 className="xl:text-7xl text-3xl text-teal font-semibold" >with Bat</h2>
                     <h3 className="xl:text-7xl text-3xl text-teal/70 font-semibold" >Mobile</h3>

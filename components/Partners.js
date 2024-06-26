@@ -60,7 +60,7 @@ export default function Partners() {
     >
       <div
         ref={containerRef}
-        className="h-fit mx-auto xl:w-[80%] w-full flex gap-x-5 items-center xl:my-10 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar"
+        className="h-fit cursor-pointer mx-auto xl:w-[80%] w-full flex gap-x-5 items-center xl:my-10 my-8 px-5 overflow-x-scroll scroll-smooth no-scrollbar"
       >
         {PARTNERS.map((partner, index) => (
           <div 

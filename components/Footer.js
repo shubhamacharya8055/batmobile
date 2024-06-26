@@ -22,7 +22,7 @@ export default function Footer() {
                 onClick={scrollToTop}
                 >
                     <Image
-                    src={"/techm_logo_white.png.webp"}
+                    src={"/batLogo.png"}
                     width={150}
                     height={150}
                     className="object-cover"

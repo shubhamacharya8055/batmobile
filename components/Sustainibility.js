@@ -46,9 +46,15 @@ export default function Sustainibility() {
         <div className='relative h-1 -skew-y-[18deg] transform bg-black'>
             <div className='min-h-screen relative aspect-video'>
             <Image 
-            src={"/sustainabilityhompage.jpg"}
+            src={"/chips.jpg"}
             fill
-            className='object-cover absolute'
+            className='object-center xl:object-cover xl:block hidden absolute'
+            />
+
+            <Image 
+            src={"/chipsTwo.jpg"}
+            fill
+            className='object-cover xl:hidden block xl:object-cover absolute'
             />
             </div>
         </div>

@@ -141,7 +141,7 @@ export default function Scale() {
 
     <div className="relative min-h-screen aspect-video overflow-hidden">
         <Image 
-        src={"/nxtnow.jpg"}
+        src={"/scaleThree.jpg"}
         fill
         alt="road image"
         ref={imageRef}

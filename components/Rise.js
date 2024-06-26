@@ -70,7 +70,7 @@ export default function Rise() {
                 <div className="xl:w-2/5 w-full xl:min-h-[400px] cursor-pointer" ref={imageRef} >
                 <div className="relative aspect-video min-h-[300px] xl:h-full w-full  group overflow-hidden">
                     <Image 
-                    src={"/mountains.webp"}
+                    src={"/vc.jpg"}
                     fill
                     className="object-cover group-hover:scale-110 transition-all duration-500 "
                     />

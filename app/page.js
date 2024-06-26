@@ -10,11 +10,13 @@ import Scale from "@/components/Scale";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import Studies from "@/components/Studies";
 import Sustainibility from "@/components/Sustainibility";
+import ChatbotIcon from "@/components/chatbot/ChatbotIcon";
 
 export default function Home() {
   return (
     <div className="relative z-10">
         <ScrollToTopButton />
+        <ChatbotIcon />
         <Landing />
         <Capabilities />
         <Scale />

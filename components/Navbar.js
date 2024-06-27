@@ -8,6 +8,10 @@ import { NAV_LINKS } from "@/lib/constants";
 import FullPageNav from "./FullPageNav";
 import Industries from "./Industries";
 import gsap from "gsap";
+import IndustriesDetails from "./IndustriesDetails";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 
 export default function Navbar() {
@@ -38,26 +42,32 @@ export default function Navbar() {
                             const aHref = e.target.href.split("/").pop();
                             const careerHref = "careers"
 
-                            if(aHref === careerHref) return
-                            
-                            e.preventDefault(); 
+                            if(aHref === careerHref){
+                                 return 
+                            }
+                            e.preventDefault()
                             const targetId = nav.href.split('#')[1]; 
                             const element = document.getElementById(targetId);
                             if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' }); 
+                                gsap.to(window, {
+                                    scrollTo: { y: element, offsetY: 0 },
+                                    duration: 0.8, 
+                                    ease: "power2.inOut",
+                                  }); 
                             }
                         }}
                         onMouseEnter={(e) => {
                             const targetId = e.target.href.split("/").pop().split("#").pop()
-                            if(targetId !== "industries") return
-                            gsap.from(industriesRef.current , {
-                                y:300 , 
-                                opacity: 0 , 
-                                duration: 0.7 ,
-                                onComplete: () => {
-                                    setShowIndustriesComponent(true)
-                                }   
-                            })
+                            if(targetId === "industries") {
+                                gsap.from(industriesRef.current , {
+                                    y:300 , 
+                                    opacity: 0 , 
+                                    duration: 0.7 ,
+                                    onComplete: () => {
+                                        setShowIndustriesComponent(true)
+                                    }   
+                                })
+                            }              
                         }}
                         >
                         {nav.label}
@@ -85,7 +95,7 @@ export default function Navbar() {
         {showIndustriesComponent && (
             <div
             ref={industriesRef}
-            className="bg-white min-w-screen h-screen z-[999999] absolute top-[100px] no-scrollbar pb-24 inset-0 overflow-y-scroll"
+            className="bg-white min-w-screen h-screen z-[999999] absolute top-[85px] no-scrollbar pb-24 inset-0 overflow-y-scroll"
             onMouseLeave={() => {
                 gsap.to(industriesRef.current , {
                     y: 300 , 
@@ -97,7 +107,7 @@ export default function Navbar() {
                 })
             }}
             >
-                <Industries />
+                <IndustriesDetails industriesRef = {industriesRef} setShowIndustriesComponent = {setShowIndustriesComponent} />
             </div>
         )}
     </nav>

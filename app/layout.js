@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/toaster"
 
 const poppins = Poppins({
   subsets: ["latin"] , 
@@ -18,7 +19,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${poppins.className} no-scrollbar`}>
         <Navbar />
-        {children}
+      <main>
+          {children}
+        </main>
+        <Toaster />
         </body>
     </html>
   );

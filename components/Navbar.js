@@ -26,10 +26,11 @@ export default function Navbar() {
         <div className="h-full w-full flex justify-between items-center">
             <Link href={"/"} className="relative">
             <Image 
-            src = "./batman.svg"
+            src = "/bat.jpg"
             className="object-cover"
             width={95}
-            alt="Tech Mahindra Logo"
+            priority
+            alt="BatMobile Logo"
             height={95}
             />
             </Link>

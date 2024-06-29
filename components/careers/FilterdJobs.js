@@ -1,4 +1,5 @@
 import { Building, EarthIcon, HomeIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function FilterdJobs({ filteredJobs }) {
   return (
@@ -49,9 +50,9 @@ export default function FilterdJobs({ filteredJobs }) {
               </h2>
             </div>
 
-            <button className="bg-teal px-5 w-fit text-white py-3 text-sm rounded-full">
+            <Link href = {`/careers/${job.id}`} className="bg-teal px-5 w-fit text-white py-3 text-sm rounded-full">
               Apply Now
-            </button>
+            </Link>
           </div>
         </div>
       ))}

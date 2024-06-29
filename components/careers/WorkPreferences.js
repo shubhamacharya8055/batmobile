@@ -20,7 +20,7 @@ export default function WorkPreferences({workType,setWorkType}) {
            />
            <label
              htmlFor={work.value}
-             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed cursor-pointer peer-disabled:opacity-70"
            >
              {work.label}
            </label>

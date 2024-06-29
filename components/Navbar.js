@@ -28,9 +28,9 @@ export default function Navbar() {
             <Image 
             src = "./batman.svg"
             className="object-cover"
-            width={70}
+            width={95}
             alt="Tech Mahindra Logo"
-            height={70}
+            height={95}
             />
             </Link>
 

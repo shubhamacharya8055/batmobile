@@ -95,7 +95,7 @@ export default function Navbar() {
         {showIndustriesComponent && (
             <div
             ref={industriesRef}
-            className="bg-white min-w-screen h-screen z-[999999] absolute top-[85px] no-scrollbar pb-24 inset-0 overflow-y-scroll"
+            className="bg-white min-w-screen h-screen z-[999999] absolute top-[80px] no-scrollbar pb-24 inset-0 overflow-y-scroll"
             onMouseLeave={() => {
                 gsap.to(industriesRef.current , {
                     y: 300 , 

@@ -14,15 +14,15 @@ import supabase from "@/services/supabase";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function ApplyForm({ job }) {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
 
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   const handleOnSubmit = async (formData) => {
-      try {
-      setIsSubmitting(true)
+    try {
+      setIsSubmitting(true);
       const resumeFile = formData.resume[0];
 
       if (resumeFile.type !== "application/pdf") {
@@ -32,7 +32,7 @@ export default function ApplyForm({ job }) {
 
       const fileExt = resumeFile.name.split(".").pop();
       const resumeFileName = `${job.keyword}_${formData.firstName}_${formData.lastName}.${fileExt}`;
-        const imagePath = `https://fzieeqwjktjculuyfweg.supabase.co/storage/v1/object/public/resumes/${resumeFileName}`;
+      const imagePath = `https://fzieeqwjktjculuyfweg.supabase.co/storage/v1/object/public/resumes/${resumeFileName}`;
 
       const { error: resumeError } = await supabase.storage
         .from("resumes")
@@ -41,45 +41,44 @@ export default function ApplyForm({ job }) {
         });
 
       if (resumeError) {
-          console.error("Resume upload failed. Please try again."); // Display error toast
+        console.error("Resume upload failed. Please try again."); // Display error toast
         return;
       }
 
       const { error: applicantError } = await supabase
-      .from("job_seekers")
-      .insert({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phoneNumber: formData.phoneNumber,
-        role: job.keyword,
-        resume: imagePath, // Store the public resume URL
-      });
+        .from("job_seekers")
+        .insert({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phoneNumber: formData.phoneNumber,
+          role: job.keyword,
+          resume: imagePath, // Store the public resume URL
+        });
 
-    if (applicantError) {
-      console.error("Error submitting application:", applicantError);
-      return;
-    }
+      if (applicantError) {
+        console.error("Error submitting application:", applicantError);
+        return;
+      }
 
-    reset()
+      reset();
     } catch (error) {
-        console.log(error)
-        toast({
-            variant: "destructive",
-            title: "Something went wrong.",
-            description: "Please Apply Again",
-        })
+      console.log(error);
+      toast({
+        variant: "destructive",
+        title: "Something went wrong.",
+        description: "Please Apply Again",
+      });
     } finally {
-        toast({
-            title: "Congrats",
-            description: "You have successfully applied for the job",
-            variant:"default",
-            duration: 2000,
-            swipeDirection: "up"
-        })
-        setIsSubmitting(false)
-        reset()
-
+      toast({
+        title: "Congrats",
+        description: "You have successfully applied for the job",
+        variant: "default",
+        duration: 2000,
+        swipeDirection: "up",
+      });
+      setIsSubmitting(false);
+      reset();
     }
   };
 
@@ -212,8 +211,12 @@ export default function ApplyForm({ job }) {
         </div>
 
         <button
-        disabled={isSubmitting}
-        type="submit" className={`${isSubmitting && "cursor-not-allowed bg-teal/55"} bg-teal text-white font-semibold py-2`}>
+          disabled={isSubmitting}
+          type="submit"
+          className={`${
+            isSubmitting && "cursor-not-allowed bg-teal/55"
+          } bg-teal text-white font-semibold py-2`}
+        >
           Apply
         </button>
       </form>

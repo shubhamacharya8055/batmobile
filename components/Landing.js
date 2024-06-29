@@ -82,7 +82,7 @@ function Landing() {
         <div className="flex flex-col w-fit xl:h-[300px] xl:w-[840px] xl:gap-y-5 gap-y-3 px-10 py-4 ">
             <h1 ref={titleRef} className="mt-14 xl:mt-0 xl:text-7xl text-4xl font-bold xl:font-semibold  text-darkBlue tracking-tight">
               {/* Scale at Speed */}
-              Power Your Future
+              Scale Your Vision
               </h1>
             <p ref={paragraphRef}
             className="xl:text-lg text-[13px] leading-5 text-darkBlue/90"

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { User, Bot } from 'lucide-react';
 import { emailRegex, initialMessages } from '@/lib/constants';
+import supabase from '@/services/supabase';
 
 
 function ConversationBox({ isOpen, setIsOpen }) {
@@ -18,7 +19,9 @@ function ConversationBox({ isOpen, setIsOpen }) {
     setChatMessages([{ from: 'bot', text: `${greeting}! What's your name?` }]);
         inputRef.current?.focus(); 
       }, [isOpen]); 
-    
+
+
+    // This code is only to ask username from user
     //   const handleSubmit = (e) => {
     //     e.preventDefault();
     
@@ -83,19 +86,62 @@ function ConversationBox({ isOpen, setIsOpen }) {
         setUserInput('');
       };
 
-      const handleEmailInput = () => {
+      const handleEmailInput = async () => {
+
         if (emailRegex.test(userInput)) {
-          setTimeout(() => {
-            setChatMessages([
-              ...chatMessages,
-              { from: 'user', text: userInput },
-              { from: 'bot', text: 'Thank you for your email. Have a good day!' },
-            ]);
-            setTimeout(() => {
-              setIsOpen(false);
-            }, 1500);
-          }, 1000);
-        } else {
+          // Get the name from previous messages
+          const name = chatMessages.findLast(msg => msg.from === 'user' && nameRegex.test(msg.text))?.text;
+
+          if (name) {
+              try {
+                  // Store the name and email in Supabase
+                  const { error } = await supabase
+                      .from('userDetails')
+                      .insert([{ name, email: userInput }]);
+
+                  if (error) {
+                      console.error('Error saving to Supabase:', error);
+                      // Optionally, send a message to the user indicating the error
+                  } else {
+                      setTimeout(() => {
+                          setChatMessages([
+                              ...chatMessages,
+                              { from: 'user', text: userInput },
+                              { from: 'bot', text: 'Thank you for your email. Have a good day!' },
+                          ]);
+                          setTimeout(() => {
+                              setIsOpen(false);
+                          }, 1500);
+                      }, 1000);
+                  }
+
+              } catch (error) {
+                  console.error('Unexpected error:', error);
+                 
+              }
+          } else {
+              // Handle case where the name is not found
+              setChatMessages([
+                  ...chatMessages,
+                  { from: 'bot', text: "I didn't catch your name. Please enter it again." },
+              ]);
+          }
+      }
+
+        // This code is only if you do not need username and email to been added to database
+        // if (emailRegex.test(userInput)) {
+        //   setTimeout(() => {
+        //     setChatMessages([
+        //       ...chatMessages,
+        //       { from: 'user', text: userInput },
+        //       { from: 'bot', text: 'Thank you for your email. Have a good day!' },
+        //     ]);
+        //     setTimeout(() => {
+        //       setIsOpen(false);
+        //     }, 1500);
+        //   }, 1000);
+        // } 
+        else {
           setTimeout(() => {
             setChatMessages([
               ...chatMessages,

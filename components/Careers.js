@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { useRef } from "react"
 import Link from "next/link"
+import { openToGmail } from "@/lib/constants"
 
 export default function Careers() {
 
@@ -64,11 +65,11 @@ export default function Careers() {
                 <h1 className="xl:text-6xl text-4xl font-medium">Contact Us</h1>
                 <p className="xl:text-xl text-lg">What can we help you achieve.</p>
                 </div>
-                <Link
-                href={"/careers"}
+                <button
+                onClick={openToGmail}
                 className="text-center border w-2/3 xl:w-1/2 xl:py-5 py-3 text-xs xl:text-base uppercase font-medium hover:bg-white hover:text-black transition-all duration-500">
                     Speak with us
-                </Link>
+                </button>
             </div>
         </div>
     </div>

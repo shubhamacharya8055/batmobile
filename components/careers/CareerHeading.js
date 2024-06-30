@@ -24,14 +24,14 @@ export default function CareerHeading() {
 
 
   return (
-    <div className="w-fit xl:mt-32 mt-20 flex flex-col gap-y-14">
-      <h1 className="text-7xl leading-[90px] text-darkBlue tracking-tight" ref={headingRef}>
+    <div className="w-fit xl:mt-24 mt-20 flex flex-col gap-y-14">
+      <h1 className="text-7xl leading-[90px] text-darkBlue font-semibold tracking-tight" ref={headingRef}>
         Shape the{" "}
         <span className="bg-teal text-white px-5 tracking-tight">
           {" "}
           Future{" "}
         </span>{" "}
-        <p> - Apply Today </p>
+        <p> Apply Today </p>
       </h1>
 
       <div className="flex flex-col gap-y-2">

@@ -6,10 +6,10 @@ import { Menu, Search, X } from "lucide-react";
 import { useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import FullPageNav from "./FullPageNav";
-import Industries from "./Industries";
 import gsap from "gsap";
 import IndustriesDetails from "./IndustriesDetails";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { usePathname, useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -19,6 +19,9 @@ export default function Navbar() {
   const industriesRef = useRef()
   const [isOpen, setIsOpen] = useState(false);
   const [showIndustriesComponent, setShowIndustriesComponent] = useState(false)
+  const router = useRouter()
+  const pathName = usePathname();  
+  let scrollTimeout; 
 
   return (
     <nav className="sticky z-[100] text-darkBlue inset-x-0 top-0 w-full backdrop-blur-lg transition-all px-10 h-20 py bg-white min-w-full shadow-sm
@@ -42,6 +45,29 @@ export default function Navbar() {
                         onClick={(e) => {
                             const aHref = e.target.href.split("/").pop();
                             const careerHref = "careers"
+                            console.log(aHref)
+                            if(pathName === "/careers" && aHref !== "#about" ) {
+                                e.preventDefault();
+                                router.push("/");
+                                
+                               scrollTimeout = setTimeout(() => {
+                                    const targetId = nav.href.split('#')[1];
+                                    const element = document.getElementById(targetId);
+                  
+                                    if (element) {
+                                      gsap.to(window, {
+                                        scrollTo: { y: element, offsetY: 0 },
+                                        duration: 0.8,
+                                        ease: "power2.inOut",
+                                      });
+                                    }
+                                  }, 500); 
+                                  return
+                            }
+
+                            if (scrollTimeout) {
+                                clearTimeout(scrollTimeout);
+                              }
 
                             if(aHref === careerHref){
                                  return 

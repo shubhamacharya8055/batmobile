@@ -53,7 +53,7 @@ export default function ApplyForm({ job }) {
           email: formData.email,
           phoneNumber: formData.phoneNumber,
           role: job.keyword,
-          resume: imagePath, // Store the public resume URL
+          resume: imagePath, 
         });
 
       if (applicantError) {

@@ -3,9 +3,8 @@
 import { Building, EarthIcon, HomeIcon } from "lucide-react";
 
 export default function JobRoleHeading({ job }) {
-  console.log(job);
   return (
-    <div className="w-fit h-fit  mt-24 flex flex-col gap-y-5">
+    <div className="w-fit h-fit xl:mt-24 mt-16 flex flex-col gap-y-5">
       <h1 className="text-6xl font-semibold">{job.keyword}</h1>
       <div className="uppercase flex gap-x-2 text-teal font-semibold">
         <p>

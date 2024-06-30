@@ -14,10 +14,10 @@ export default function page({params}) {
 
   return (
     <div className="min-w-full min-h-full">
-            <div className="w-full h-full xl:px-20 py-5 px-16">
+            <div className="w-full h-full xl:px-20 py-5 px-12">
                 <BackLinks />
                 <JobRoleHeading job = {Job}  />
-                <div className="grid grid-cols-2 mt-16">
+                <div className="grid xl:grid-cols-2 grid-rows-2 xl:grid-rows-1 md:grid-cols-2 md:grid-rows-1 gap-10 xl:gap-y-0 mt-16">
                     <div className="flex flex-col gap-y-8">
                     <Technologies job = {Job} />
                     <Requirements job = {Job} />

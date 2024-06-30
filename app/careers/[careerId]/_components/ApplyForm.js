@@ -89,7 +89,7 @@ export default function ApplyForm({ job }) {
       </h1>
 
       <form
-        className="mx-auto h-fit flex flex-col gap-y-4 text-darkBlue w-3/4"
+        className="mx-auto h-fit flex flex-col gap-y-4 text-darkBlue w-full"
         onSubmit={handleSubmit(handleOnSubmit)}
       >
         <div className="flex gap-x-3">

@@ -26,7 +26,7 @@ export default function Navbar() {
         <div className="h-full w-full flex justify-between items-center">
             <Link href={"/"} className="relative">
             <Image 
-            src = "/bat.jpg"
+            src = "/bat.png"
             className="object-cover"
             width={95}
             priority

@@ -52,7 +52,7 @@ export default function Sustainibility() {
             />
 
             <Image 
-            src={"/chipsTwo.jpg"}
+            src={"/chipsTwo-min.jpg"}
             fill
             className='object-cover xl:hidden block xl:object-cover absolute'
             />

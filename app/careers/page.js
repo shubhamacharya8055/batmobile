@@ -140,7 +140,7 @@ export default function Page() {
         {/* People Working  Image */}
 
         <div className="w-full relative xl:aspect-video aspect-square my-20">
-          <DynamicImage src={"/Group.jpg"} fill className="object-cover" />
+          <DynamicImage src={"/Group-min.jpg"} fill className="object-cover" />
         </div>
       </div>
 

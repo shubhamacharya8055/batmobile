@@ -37,12 +37,12 @@ function Landing() {
     useGSAP(() => {
         gsap.fromTo(
           [titleRef.current, paragraphRef.current],
-          { y: 50, opacity: 0 },
+          { y: 150, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            stagger: 0.2,
-            duration: 0.2,
+            stagger: 0.3,
+            duration: 0.5,
             scrollTrigger: {
               trigger: lineRef.current,
               start: "top 10%",  

@@ -96,7 +96,7 @@ function ConversationBox({ isOpen, setIsOpen }) {
               try {
                   // Store the name and email in Supabase
                   const { error } = await supabase
-                      .from('userDetails')
+                      .from('user_details')
                       .insert([{ name, email: userInput }]);
 
                   if (error) {

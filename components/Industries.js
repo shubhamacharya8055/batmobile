@@ -9,7 +9,7 @@ import { INDUSTRIES } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Industries() {
+export default function Industries({title , description}) {
 
     const [activeIndex, setActiveIndex] = useState(0)
     const [progressWidth, setProgressWidth] = useState(0); 
@@ -82,9 +82,10 @@ export default function Industries() {
     id="industries"
     >
         <div className="xl:px-20 xl:py-32 px-5 py-20 flex gap-y-5 flex-col xl:flex-row justify-between w-full">
-            <h1 className="flex-1 xl:text-6xl text-3xl text-darkBlue font-medium" ref={paragraphRef} >Industries</h1>
+            <h1 className="flex-1 xl:text-6xl text-3xl text-darkBlue font-medium" ref={paragraphRef} >{title}</h1>
             <p className="flex-1 xl:text-lg text-sm leading-6 xl:basis-60 text-darkBlue h-40 xl:ml-40 " ref={industryRef}>
-            Our expertise spans 13 industries from banking, insurance, telecommunications, media, entertainment, distribution, retail, to many more.</p>
+          {description}
+            </p>
             <div className="flex-1 xl:flex justify-end items-start gap-x-3 hidden  ">
                 <button
                 className="p-5 rounded-full border border-zinc-800 hover:scale-75 transition-all "
@@ -118,7 +119,7 @@ export default function Industries() {
                         className="text-black object-cover"
                         />
                     </div>
-                    <p className="px-5 xl:text-2xl text-sm text-darkBlue">{item.label}</p>
+                    <p className="px-5 xl:text-2xl text-center text-sm text-darkBlue">{item.label}</p>
                 </div>
                 <div className="relative xl:aspect-square aspect-video">
                     <Image 

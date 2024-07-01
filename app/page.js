@@ -18,7 +18,9 @@ export default function Home() {
         <Landing />
         <Capabilities />
         <Scale />
-        <Industries />
+        <Industries title={"Industries"} 
+        description = {"Our expertise spans 5 industries from telecommunications, media, entertainment, health to many more."}
+        />
         <Sustainibility />
         <Studies />
         <Rise />

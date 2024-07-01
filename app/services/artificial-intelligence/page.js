@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useRef } from "react"
 // import "@/app/horizontal.css"
 
-export default function page() {
+export default function Page() {
 
     const targetRef = useRef(null);
     const {scrollYProgress} = useScroll({target: targetRef});

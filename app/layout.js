@@ -10,7 +10,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "Bat Mobile | Scale at Speed",
+  title: "Bat Mobile | Scale your Vision",
   description: "The Bat Co. which looks after the technical aspects of Bat motors and company.",
 };
 

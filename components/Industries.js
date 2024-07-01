@@ -51,10 +51,6 @@ export default function Industries() {
       };
 
       useEffect(() => {
-        scrollToItem()
-      }, [activeIndex])
-
-      useEffect(() => {
         const interval = setInterval(() => {
           handleNext();
           scrollToItem();

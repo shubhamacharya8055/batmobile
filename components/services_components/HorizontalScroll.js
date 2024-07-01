@@ -36,6 +36,7 @@ export default function HorizontalScroll({data}) {
                       <motion.div
                       className="border rounded-md border-teal-500 xl:min-w-[600px] min-w-[300px] h-full 
                    shadow-md shadow-teal-500/50 hover:shadow-lg hover:shadow-teal-500/70"
+                      key={item.title}
                       whileHover={{
                         scale: 1.05,
                         rotate: -2,

@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import { INDUSTRIES } from "@/lib/constants";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,6 +111,7 @@ export default function Industries({title , description}) {
                 onMouseEnter={() => handleEnter(index)}
                 onMouseLeave={handleLeave}
                 >
+                  <Link href={`${item.link}`} className="w-full h-full">
                 <div className="h-[200px] xl:h-1/2 flex items-center justify-center gap-y-3 flex-col">
                     <div className="relative ">
                         <Image 
@@ -128,6 +130,8 @@ export default function Industries({title , description}) {
                     className={`object-cover grayscale ${activeIndex === index ? "group-hover:grayscale-0" : ""}`}
                     />
                 </div>
+                </Link>
+
             </div> 
             ))
         }

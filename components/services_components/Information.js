@@ -1,17 +1,18 @@
 import { Item } from "@radix-ui/react-select";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import React from "react";
 
-export default function Information({data}) {
+export default function Information({ data }) {
   return (
     <div className="grid xl:mt-0 mt-32 grid-cols-1 grid-rows-2 gap-y-10">
-          <div className="grid xl:grid-cols-2 xl:grid-rows-1 grid-cols-1 grid-rows-2 xl:justify-items-center place-items-center gap-y-10 ">
-            {data.infoOne.map((item) => (
-                <>
-                <motion.div
+      <div className="grid xl:grid-cols-2 xl:grid-rows-1 grid-cols-1 grid-rows-2 xl:justify-items-center place-items-center gap-y-10 ">
+        {data.infoOne.map((item) => (
+          <React.Fragment key={item.title}>
+            <motion.div
               className="rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/70 transition-all duration-1000 xl:w-[80%] xl:min-h-[80%] w-full cursor-pointer overflow-hidden"
-              initial={{ opacity: 0, x: -200 , scale: 0.5 }}
-              whileInView={{ opacity: 1, x: 0 , scale: 1  }}
+              initial={{ opacity: 0, x: -200, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.5, ease: "linear" }}
               viewport={{ once: true }}
             >
@@ -39,14 +40,13 @@ export default function Information({data}) {
                 {item.description}
               </p>
             </motion.div>
-                </>
-            ))}
-            
-          </div>
-          <div className="grid xl:grid-cols-2 xl:grid-rows-1 grid-cols-1 grid-rows-2 xl:justify-items-center place-items-center gap-y-10">
-            {data.infoTwo.map((item) => (
-                <>
-                <motion.div
+          </React.Fragment>
+        ))}
+      </div>
+      <div className="grid xl:grid-cols-2 xl:grid-rows-1 grid-cols-1 grid-rows-2 xl:justify-items-center place-items-center gap-y-10">
+        {data.infoTwo.map((item) => (
+          <React.Fragment key={item.title}>
+            <motion.div
               className="flex flex-col justify-evenly xl:pl-5 cursor-pointer gap-y-10 place-self-start xl:place-self-stretch"
               initial={{ opacity: 0, x: -200 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -77,9 +77,9 @@ export default function Information({data}) {
                 />
               </div>
             </motion.div>
-                </>
-            ))} 
-          </div>
-        </div>
-  )
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
 }

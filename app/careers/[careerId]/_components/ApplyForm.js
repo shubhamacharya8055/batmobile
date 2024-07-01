@@ -10,8 +10,8 @@ import {
   PHONE_REGEX,
 } from "@/lib/constants";
 import { useState } from "react";
-import supabase from "@/services/supabase";
 import { useToast } from "@/components/ui/use-toast";
+import supabase from "@/services-api/supabase";
 
 export default function ApplyForm({ job }) {
   const [isSubmitting, setIsSubmitting] = useState(false);

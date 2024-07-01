@@ -96,7 +96,7 @@ export default function Explore() {
             <div className="xl:mt-20 mt-10 h-[400px] gap-x-5 flex overflow-x-scroll no-scrollbar transition-all duration-500" ref={scrollRef}>
 
                     {EXPLORE.map((item,index) => (
-                        <div className={`group xl:min-w-[40%] transition-all duration-500 ${activeIndex === index ? "h-full" : "h-[300px]"}`} key={index}>
+                        <div className={`group xl:min-w-[40%] transition-all duration-500 ${activeIndex === index ? "h-full" : "h-[300px]"} cursor-pointer`} key={index}>
                         <div className="relative h-full w-full aspect-square overflow-hidden ">
                             <Image 
                             src={item.img}

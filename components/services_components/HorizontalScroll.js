@@ -1,8 +1,7 @@
-import { ARTIFICIAL_INTELLIGENCE } from "@/lib/constants";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-export default function HorizontalScroll() {
+export default function HorizontalScroll({data}) {
 
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({ target: targetRef });
@@ -33,7 +32,7 @@ export default function HorizontalScroll() {
               className="cursor-pointer grid xl:min-w-[2600px] min-w-[1200px] min-h-[400px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
               style={{ x }}
             >
-              {ARTIFICIAL_INTELLIGENCE.map((item) => (
+              {data.map((item) => (
                       <motion.div
                       className="border rounded-md border-teal-500 xl:min-w-[600px] min-w-[300px] h-full 
                    shadow-md shadow-teal-500/50 hover:shadow-lg hover:shadow-teal-500/70"

@@ -1,12 +1,12 @@
-import { ARTIFICIAL_INTELLIGENCE_INFORMATION } from "@/lib/constants";
+import { Item } from "@radix-ui/react-select";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function Information() {
+export default function Information({data}) {
   return (
     <div className="grid xl:mt-0 mt-32 grid-cols-1 grid-rows-2 gap-y-10">
           <div className="grid xl:grid-cols-2 xl:grid-rows-1 grid-cols-1 grid-rows-2 xl:justify-items-center place-items-center gap-y-10 ">
-            {ARTIFICIAL_INTELLIGENCE_INFORMATION.infoOne.map((item) => (
+            {data.infoOne.map((item) => (
                 <>
                 <motion.div
               className="rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/70 transition-all duration-1000 xl:w-[80%] xl:min-h-[80%] w-full cursor-pointer overflow-hidden"
@@ -44,7 +44,7 @@ export default function Information() {
             
           </div>
           <div className="grid xl:grid-cols-2 xl:grid-rows-1 grid-cols-1 grid-rows-2 xl:justify-items-center place-items-center gap-y-10">
-            {ARTIFICIAL_INTELLIGENCE_INFORMATION.infoTwo.map((item) => (
+            {data.infoTwo.map((item) => (
                 <>
                 <motion.div
               className="flex flex-col justify-evenly xl:pl-5 cursor-pointer gap-y-10 place-self-start xl:place-self-stretch"
@@ -71,7 +71,7 @@ export default function Information() {
             >
               <div className="relative aspect-square ">
                 <Image
-                  src={"/ai/aiTwo.jpg"}
+                  src={item.img}
                   className="object-cover object-left hover:scale-110 transition-all duration-500"
                   fill
                 />

@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 
 export default function ServiceHeading({title, description}) {
   return (
-    <div className="h-fit w-fit mt-12 flex flex-col gap-y-5">
-      <motion.h1
+    <div className="h-[200px] min-w-[100px] flex flex-col break-words mt-12 gap-y-5">
+      <motion.div
         className="text-darkBlue xl:text-8xl text-6xl font-semibold tracking-tight"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2, ease: "easeIn" }}
       >
         {title}
-      </motion.h1>
+      </motion.div>
       <motion.p
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}

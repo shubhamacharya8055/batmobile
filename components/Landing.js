@@ -5,6 +5,7 @@ import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { HERO_VIDEO } from "@/lib/constants";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -100,9 +101,9 @@ function Landing() {
                 {item.p3 && <p className="xl:text-4xl text-2xl font-medium">{item.p3}</p>}
                 {item.p4 && <p className="xl:text-4xl text-2xl font-medium">{item.p4}</p>}
 
-                <button className="py-4 px-6 border border-gray-50 xl:mt-7 mt-4">
+                <Link href={"/contact-us"} className="py-4 px-6 border border-gray-50 xl:mt-7 mt-4">
                     KNOW MORE
-                </button>
+                </Link>
             </div>
             ))}   
         </div>

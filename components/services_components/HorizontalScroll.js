@@ -27,10 +27,10 @@ export default function HorizontalScroll({data}) {
 
     
   return (
-    <div className="h-[50vh] xl:h-[300vh] mt-20" ref={targetRef}>
+    <div className="h-[40vh] xl:h-[300vh] mt-20" ref={targetRef}>
           <div className="h-[100vh] min-w-full sticky top-20 flex justify-start xl:items-center items-start overflow-hidden">
             <motion.div
-              className="cursor-pointer grid xl:min-w-[2600px] min-w-[1200px] min-h-[400px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
+              className="cursor-pointer grid xl:min-w-[2600px] min-w-[1300px] min-h-[400px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
               style={{ x }}
             >
               {data.map((item) => (
@@ -47,7 +47,7 @@ export default function HorizontalScroll({data}) {
                         whileInView={{opacity:1 , y:0}}
                         transition={{duration: 0.5, delay: 0.3, ease: "easeOut"}}
                     >
-                      <div className="w-full h-full flex flex-col gap-y-5 xl:px-10 xl:py-10 px-5 py-5 bg-gradient-to-r from-white to-blue-50">
+                      <div className="w-full h-full flex flex-col break-words gap-y-5 xl:px-10 xl:py-10 px-5 py-5 bg-gradient-to-r from-white to-blue-50">
                         <h1 className="xl:text-5xl text-4xl font-semibold h-1/2 text-teal-900">
                           {item.title}
                         </h1>

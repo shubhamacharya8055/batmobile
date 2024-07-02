@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <div className="min-w-full min-h-full">
       <ProgressBar />
-      <div className="min-w-full min-h-full xl:px-14 px-10 py-14">
+      <div className=" min-w-full min-h-full xl:px-14 px-10 py-14">
         <Service />
         <ServiceHeading description={`Expediting the future of communications with end-to-end digital capabilities.`}
         title={`Communications`} />

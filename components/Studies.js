@@ -94,7 +94,7 @@ export default function Studies() {
 
         <div className="min-w-[100%] flex  overflow-x-scroll no-scrollbar" ref={scrollRef}>
         {STUDIES.map((item,index) => (
-              <div className="xl:min-w-[33.3%]  min-h-[500px] group relative border border-white cursor-pointer" key={item.label}>
+              <div className="xl:min-w-[33.3%]  min-h-[500px] group relative border border-white cursor-pointer" key={`${item.label}-${index}`}>
               <div className={`h-[380px] ${activeIndex ===index ? "group-hover:h-[300px]" : ""} group-hover:h-[300px] transition-all duration-700 aspect-square w-full relative`}>
                       <Image 
                       src={item.img}

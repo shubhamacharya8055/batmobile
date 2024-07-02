@@ -14,9 +14,11 @@ export default function Page() {
   const { errors } = formState;
 
   function startConversation(name, email, message) {
+    const encodedSubject = encodeURIComponent(subject).replace(/%20/g, '+'); 
+    const encodedBody = encodeURIComponent(`Hi, I'm ${name}. ${message}`).replace(/%20/g, '+'); 
     const mailParams = new URLSearchParams({
-      subject: `Looking forward to get started with you`,
-      body: `Hi, I'm ${name}. ${message}`,
+      subject: encodedSubject,
+      body: encodedBody,
     });
   
     const mailtoLink = `mailto:batMobile@gmail.com?${mailParams}`;

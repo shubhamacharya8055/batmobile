@@ -27,10 +27,10 @@ export default function HorizontalScroll({data}) {
 
     
   return (
-    <div className="h-[40vh] xl:h-[300vh] mt-20" ref={targetRef}>
+    <div className="h-[40vh] xl:h-[300vh] mt-32" ref={targetRef}>
           <div className="h-[100vh] min-w-full sticky top-20 flex justify-start xl:items-center items-start overflow-hidden">
             <motion.div
-              className="cursor-pointer grid xl:min-w-[2600px] min-w-[1300px] min-h-[400px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
+              className="cursor-pointer grid xl:min-w-[2600px] min-w-[700px] min-h-[400px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
               style={{ x }}
             >
               {data.map((item) => (

@@ -12,7 +12,7 @@ export default function HorizontalScroll({data}) {
     useEffect(() => {
       const updateXEndValue = () => {
         if (window.innerWidth === 412 && window.innerHeight === 915) {
-          setXEndValue("-77%");
+          setXEndValue("-20%");
         } else {
           setXEndValue("-57%");
         }
@@ -28,14 +28,14 @@ export default function HorizontalScroll({data}) {
     
   return (
     <div className="h-[40vh] xl:h-[300vh] mt-32" ref={targetRef}>
-          <div className="h-[100vh] min-w-full sticky top-20 flex justify-start xl:items-center items-start overflow-hidden">
+          <div className="xl:h-[100vh] min-w-full sticky top-20 flex justify-start xl:items-center items-start xl:overflow-hidden">
             <motion.div
-              className="cursor-pointer grid xl:min-w-[2600px] min-w-[700px] min-h-[400px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
+              className="cursor-pointer grid xl:min-w-[2600px] min-w-[1200px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
               style={{ x }}
             >
               {data.map((item) => (
                       <motion.div
-                      className="border rounded-md border-teal-500 xl:min-w-[600px] min-w-[300px] h-full 
+                      className="border rounded-md border-teal-500 xl:min-w-[600px] w-[300px] min-h-full 
                    shadow-md shadow-teal-500/50 hover:shadow-lg hover:shadow-teal-500/70"
                       key={item.title}
                       whileHover={{

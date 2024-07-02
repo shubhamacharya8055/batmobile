@@ -35,7 +35,7 @@ export default function HorizontalScroll({data}) {
             >
               {data.map((item) => (
                       <motion.div
-                      className="border rounded-md border-teal-500 xl:min-w-[600px] w-[300px] min-h-full 
+                      className="border rounded-md border-teal-500 xl:min-w-[600px] w-[300px] min-h-[400px] 
                    shadow-md shadow-teal-500/50 hover:shadow-lg hover:shadow-teal-500/70"
                       key={item.title}
                       whileHover={{

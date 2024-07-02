@@ -14,7 +14,7 @@ export default function Page() {
   const { errors } = formState;
 
   function startConversation(name, email, message) {
-    const encodedSubject = encodeURIComponent(subject).replace(/%20/g, '+'); 
+    const encodedSubject = encodeURIComponent("Looking forward to get started with you").replace(/%20/g, '+'); 
     const encodedBody = encodeURIComponent(`Hi, I'm ${name}. ${message}`).replace(/%20/g, '+'); 
     const mailParams = new URLSearchParams({
       subject: encodedSubject,

@@ -103,7 +103,7 @@ export default function Capabilities() {
 
             <div ref={scrollRef} className={`grid xl:grid-cols-4 grid-cols-[repeat(8,1fr)] xl:grid-rows-2 gap-3 no-scrollbar overflow-x-scroll xl:hidden transition-all duration-500  `}>
                 {CAPABILITIES.map((item) => (
-                    <div key={item.label} className=" h-[450px] min-w-[320px] xl:min-w-full relative group border">
+                    <Link href={`${item.link}`} key={item.label} className=" h-[450px] min-w-[320px] xl:min-w-full relative group border">
                         <div className="relative h-full w-full overflow-hidden">
                             <Image 
                             src={item.img}
@@ -115,7 +115,7 @@ export default function Capabilities() {
                         <p className="text-white text-2xl absolute inset-x-0 font-medium w-52 z-20 top-10 left-10">{item.label}</p>
                         <p className="absolute z-10 text-white top-[50%] px-6 text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 ">{item.desc}</p>
                         <div className="absolute inset-0 group-hover:bg-black/40 group-hover:backdrop-blur-[2px] transition-all duration-500"></div>
-                    </div>
+                    </Link>
                     
                 ))}
             </div>

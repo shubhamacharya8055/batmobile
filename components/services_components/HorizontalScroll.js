@@ -1,4 +1,5 @@
 import { useScroll, useTransform, motion } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function HorizontalScroll({data}) {
@@ -61,7 +62,9 @@ export default function HorizontalScroll({data}) {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            Enroll Now
+                            <Link href={"/contact-us"}>
+                            Get Started
+                            </Link>
                           </motion.button>
                         </div>
                       </div>

@@ -31,15 +31,15 @@ export default function Footer() {
 
                 <div className="xl:w-2/5 w-full text-white flex justify-between">
                     <ul className="flex flex-col gap-y-3">
-                        {FOOTER_LINKS_ONE.map((item) => (
-                            <li key={item.link} className="hover:underline underline-offset-4 hover:opacity-40 transition-all duration-500">
+                        {FOOTER_LINKS_ONE.map((item, index) => (
+                            <li key={`${index}-${item.link}`} className="hover:underline underline-offset-4 hover:opacity-40 transition-all duration-500">
                                 <Link href={item.link} className="xl:text-lg text-sm">{item.label}</Link>
                             </li>
                         ))}
                     </ul>
                     <ul className="flex flex-col gap-y-3">
-                        {FOOTER_LINKS_TWO.map((item) => (
-                             <li key={item.link} className="hover:underline underline-offset-4 hover:opacity-40 transition-all duration-500">
+                        {FOOTER_LINKS_TWO.map((item, index) => (
+                             <li key={`${index}-${item.link}`} className="hover:underline underline-offset-4 hover:opacity-40 transition-all duration-500">
                              <Link href={item.link} className="xl:text-lg text-sm" >{item.label}</Link>
                          </li>
                         ))}

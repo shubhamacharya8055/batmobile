@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function ServiceHeading({title, description}) {
   return (
-    <div className="h-[200px] min-w-[100px] flex flex-col break-words mt-12 gap-y-5">
+    <div className="h-[200px] min-w-[100px] flex flex-col mt-12 gap-y-5 xl:mb-0 mb-32">
       <motion.div
         className="text-darkBlue xl:text-8xl text-6xl font-semibold tracking-tight"
         initial={{ opacity: 0, y: 50 }}

@@ -30,13 +30,13 @@ export default function Information({ data }) {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <p className="xl:text-sm text-xs text-darkBlue font-semibold">
+              <p className="xl:text-lg underline underline-offset-4 text-xs text-teal font-semibold">
                 case study
               </p>
-              <h2 className="xl:text-5xl text-2xl font-semibold text-darkBlue ">
+              <h2 className="xl:text-5xl text-2xl font-semibold tracking-tighter text-darkBlue ">
                 {item.title}
               </h2>
-              <p className="text-sm text-darkBlue tracking-wide leading-6">
+              <p className="text-sm xl:text-[14px] italic xl:leading-5 text-darkBlue tracking-wide">
                 {item.description}
               </p>
             </motion.div>
@@ -52,13 +52,13 @@ export default function Information({ data }) {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <p className="xl:text-sm text-xs text-darkBlue font-semibold">
+              <p className="xl:text-lg underline underline-offset-4 text-xs text-teal font-semibold">
                 case study
               </p>
-              <h2 className="xl:text-5xl text-2xl font-semibold text-darkBlue ">
+              <h2 className="xl:text-5xl text-2xl font-semibold tracking-tighter text-darkBlue ">
                 {item.title}
               </h2>
-              <p className="text-sm text-darkBlue tracking-wide leading-6">
+              <p className="text-sm xl:text-[14px] italic xl:leading-5 text-darkBlue tracking-wide leading-6">
                 {item.description}
               </p>
             </motion.div>

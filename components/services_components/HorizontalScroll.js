@@ -7,12 +7,12 @@ export default function HorizontalScroll({data}) {
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({ target: targetRef });
   
-    const [xEndValue, setXEndValue] = useState("-55%");
+    const [xEndValue, setXEndValue] = useState("-57%");
   
     useEffect(() => {
       const updateXEndValue = () => {
         if (window.innerWidth === 412 && window.innerHeight === 915) {
-          setXEndValue("-20%");
+          setXEndValue("-77%");
         } else {
           setXEndValue("-57%");
         }
@@ -27,10 +27,10 @@ export default function HorizontalScroll({data}) {
 
     
   return (
-    <div className="h-[40vh] xl:h-[300vh] mt-32" ref={targetRef}>
-          <div className="xl:h-[100vh] min-w-full sticky top-20 flex justify-start xl:items-center items-start xl:overflow-hidden">
+    <div className="h-[40vh] xl:h-[300vh] " ref={targetRef}>
+          <div className="h-[100vh] min-w-full sticky top-20 flex justify-start xl:items-center items-start xl:overflow-hidden">
             <motion.div
-              className="cursor-pointer grid xl:min-w-[2600px] min-w-[1200px] grid-cols-4 grid-rows-1 gap-x-10 xl:gap-x-5 text-darkBlue"
+              className="cursor-pointer grid xl:min-w-[2600px] min-w-[1200px] grid-cols-4 grid-rows-1 xl:gap-x-0 gap-x-16 text-darkBlue"
               style={{ x }}
             >
               {data.map((item) => (
@@ -51,7 +51,7 @@ export default function HorizontalScroll({data}) {
                         <h1 className="xl:text-5xl text-4xl font-semibold h-1/2 text-teal-900">
                           {item.title}
                         </h1>
-                        <p className="xl:text-sm text-xs text-teal-700 font-semibold">
+                        <p className="text-[12px] leading-5 text-gray-500 font-medium">
                           {item.description}
                         </p>
                         <div className="flex justify-center mt-auto">

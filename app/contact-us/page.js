@@ -13,21 +13,19 @@ export default function Page() {
   const { register, formState, handleSubmit } = useForm();
   const { errors } = formState;
 
-  function startConversation(name, email, message) {
-    const encodedSubject = encodeURIComponent("Looking forward to get started with you").replace(/%20/g, '+'); 
-    const encodedBody = encodeURIComponent(`Hi, I'm ${name}. ${message}`).replace(/%20/g, '+'); 
-    const mailParams = new URLSearchParams({
-      subject: encodedSubject,
-      body: encodedBody,
-    });
+  function startConversation(name,message) {
+    const subject = `Looking forward to get started with you`
+    const body = `Hi, I'm ${name}. ${message}`
   
-    const mailtoLink = `mailto:batMobile@gmail.com?${mailParams}`;
+    const mailtoLink = `mailto:shubcharya8055@gmail.com?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   }
   
 
-  const handleOnSubmit = ({name,email,message}) => {
-    startConversation(name,email,message)
+  const handleOnSubmit = ({name,message}) => {
+    startConversation(name, message)
   }
 
   return (

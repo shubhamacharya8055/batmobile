@@ -34,7 +34,7 @@ export default function Page() {
   
 
   return (
-    <div className="relative xl:h-[87vh] h-[91vh] overflow-hidden">
+    <div className="relative xl:h-[87vh] h-[91vh] overflow-hidden cursor-pointer">
       {/* Full-Screen Image with Blur and Glassmorphism */}
       <motion.div style={{x,y}}
       className="w-full h-full absolute inset-0"

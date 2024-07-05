@@ -50,7 +50,7 @@ useEffect(() => {
       >
 
       <Image
-        src="/batman.webp" 
+        src="/batman_one.jpg" 
         alt="Batmobile"
         layout="fill"
         objectFit="cover"

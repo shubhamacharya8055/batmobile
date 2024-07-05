@@ -40,7 +40,7 @@ useEffect(() => {
     };
   }
 
-}, [windowSize]); 
+}, []); 
 
   return (
     <div className="relative xl:h-[87vh] h-[91vh] overflow-hidden cursor-pointer">
@@ -69,7 +69,7 @@ useEffect(() => {
           We help you to grow 2x faster than you are!
         </motion.h1>
         <motion.button
-        onClick={() => openToGmail}
+        onClick={openToGmail}
           className="bg-white text-red-500 hover:bg-red-500 hover:text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-110"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

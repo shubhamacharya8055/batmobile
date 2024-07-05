@@ -25,6 +25,7 @@ export default function Footer() {
                     src={"/batLogo.png"}
                     width={150}
                     height={150}
+                    alt="BatLogo"
                     className="object-cover"
                     />
                 </div>
@@ -54,6 +55,7 @@ export default function Footer() {
                             <Image 
                             src={item.img}
                             fill
+                            alt="Social Links"
                             className="object-cover"
                             />
                             </Link>

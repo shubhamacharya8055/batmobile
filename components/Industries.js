@@ -118,6 +118,7 @@ export default function Industries({title , description}) {
                         src={item.icon}
                         width={40}
                         height={40}
+                        alt="Industries-icon"
                         className="text-black object-cover"
                         />
                     </div>
@@ -127,6 +128,7 @@ export default function Industries({title , description}) {
                     <Image 
                     src={item.image}
                     fill
+                    alt="Industries Images"
                     className={`object-cover grayscale ${activeIndex === index ? "group-hover:grayscale-0" : ""}`}
                     />
                 </div>

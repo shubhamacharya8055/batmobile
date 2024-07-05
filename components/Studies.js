@@ -99,6 +99,7 @@ export default function Studies() {
                       <Image 
                       src={item.img}
                       fill
+                      alt="Studies-images"
                       className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                       />
               <div className="h-1 bg-teal absolute z-[9999] inset-x-0 bottom-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

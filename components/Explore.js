@@ -101,6 +101,7 @@ export default function Explore() {
                             <Image 
                             src={item.img}
                             fill
+                            alt="Explore Images"
                             className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
                             />
                         <h3 className="absolute text-white bottom-8 left-10 text-2xl font-medium tracking-normal">{item.label}</h3>

@@ -70,7 +70,7 @@ useEffect(() => {
         </motion.h1>
         <motion.button
         onClick={openToGmail}
-          className="bg-white text-red-500 hover:bg-red-500 hover:text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-110"
+          className="bg-white text-darkBlue hover:bg-red-500 hover:text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-110"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >

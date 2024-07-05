@@ -48,12 +48,14 @@ export default function Sustainibility() {
             <Image 
             src={"/chips.jpg"}
             fill
+            alt='chips'
             className='object-center xl:object-cover xl:block hidden absolute'
             />
 
             <Image 
             src={"/chipsTwo-min.jpg"}
             fill
+            alt='chips-two'
             className='object-cover xl:hidden block xl:object-cover absolute'
             />
             </div>

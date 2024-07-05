@@ -72,6 +72,7 @@ export default function Rise() {
                     <Image 
                     src={"/vc.jpg"}
                     fill
+                    alt="Vc"
                     className="object-cover group-hover:scale-110 transition-all duration-500 "
                     />
                 </div>

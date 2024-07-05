@@ -51,7 +51,7 @@ export default function HorizontalScroll({data}) {
                         <h1 className="xl:text-5xl text-4xl font-semibold h-1/2 text-teal-900">
                           {item.title}
                         </h1>
-                        <p className="text-[12px] leading-5 text-gray-500 font-medium">
+                        <p className="text-[13px] line-clamp-3 leading-5 text-gray-500 font-medium">
                           {item.description}
                         </p>
                         <div className="flex justify-center mt-auto">

@@ -21,7 +21,7 @@ export default function Navbar() {
   const capabilitiesRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false);
   const [showIndustriesComponent, setShowIndustriesComponent] = useState(false)
-  const [showCapabilities, setShowCapabilities] = useState(true)
+  const [showCapabilities, setShowCapabilities] = useState(false)
   const router = useRouter()
   const pathName = usePathname();  
   let scrollTimeout; 
@@ -49,6 +49,13 @@ export default function Navbar() {
                             const aHref = e.target.href.split("/").pop();
                             const careerHref = "careers"
                             console.log(aHref)
+
+                            if(aHref === "#about") {
+                                e.preventDefault()
+                                router.push("/about-us")
+                                return
+                            }
+
                             if(pathName === "/careers" && aHref !== "#about" ) {
                                 e.preventDefault();
                                 router.push("/");

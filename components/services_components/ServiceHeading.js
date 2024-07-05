@@ -15,7 +15,7 @@ export default function ServiceHeading({title, description}) {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2, delay: 0.4, ease: "easeIn" }}
-        className="text-lg text-gray-600 xl:w-3/4 w-full"
+        className="text-xl text-gray-700 xl:w-3/4 w-full"
       >
         {description}
       </motion.p>

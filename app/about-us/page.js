@@ -2,36 +2,45 @@
 
 import Image from 'next/image';
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { openToGmail } from '@/lib/constants';
 
 export default function Page() {
-  const companyInfo = {
-    address: '2nd Block - Green Street Kumta',
-    phone: '6363303057',
-    email: 'batmobile@bat.com'
+
+const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+const mouseX = useMotionValue(0);
+const mouseY = useMotionValue(0);
+
+const x = useTransform(mouseX, [-windowSize.width / 2, windowSize.width / 2], [-20, 20]);
+const y = useTransform(mouseY, [-windowSize.height / 2, windowSize.height / 2], [-20, 20]);
+
+useEffect(() => {
+
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
   };
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const handleMouseMove = (event) => {
+    mouseX.set(event.clientX - windowSize.width / 2);
+    mouseY.set(event.clientY - windowSize.height / 2);
+  };
 
-  const x = useTransform(mouseX, [-window.innerWidth / 2, window.innerWidth / 2], [-20, 20]);
-  const y = useTransform(mouseY, [-window.innerHeight / 2, window.innerHeight / 2], [-20, 20]);
-
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      mouseX.set(event.clientX - window.innerWidth / 2);
-      mouseY.set(event.clientY - window.innerHeight / 2);
-    };
-
+  if (typeof window !== 'undefined') {
+    handleResize();
+    window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }
 
-  
+}, [windowSize]); 
 
   return (
     <div className="relative xl:h-[87vh] h-[91vh] overflow-hidden cursor-pointer">
@@ -41,8 +50,8 @@ export default function Page() {
       >
 
       <Image
-        src="/batman.webp" // Replace with your image path
-        alt="Company Image"
+        src="/batman.webp" 
+        alt="Batmobile"
         layout="fill"
         objectFit="cover"
         className="blur-sm filter brightness-75 scale-110 backdrop-filter backdrop-blur-md" // Apply blur and glassmorphism effects
@@ -80,17 +89,6 @@ export default function Page() {
         transition={{ duration: 0.8 }}
       >
         
-        {/* {Object.entries(companyInfo).map(([key, value]) => (
-          <motion.div
-            key={key}
-            className="w-1/3 text-center cursor-pointer p-2 rounded-lg bg-black/20 backdrop-filter backdrop-blur-sm"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <p className="font-semibold uppercase">{key}</p>
-            <p className="text-sm">{value}</p>
-          </motion.div>
-        ))} */}
         <div className='w-full h-full flex xl:justify-evenly justify-around items-center cursor-pointer'>
             <div className=' flex xl:flex-row xl:gap-x-2 flex-col gap-y-1'>
             <h2 className='font-medium text-xs'>Address:</h2>

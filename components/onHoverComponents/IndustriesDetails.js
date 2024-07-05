@@ -4,7 +4,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-export default function IndustriesDetails({setShowIndustriesComponent , industriesRef}) {
+export default function IndustriesDetails({setShowIndustriesComponent}) {
   return (
     <div className="min-w-full min-h-full">
         <div className="py-16 px-24 flex gap-x-32"

@@ -7,18 +7,21 @@ import { useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import FullPageNav from "./FullPageNav";
 import gsap from "gsap";
-import IndustriesDetails from "./IndustriesDetails";
+import IndustriesDetails from "./onHoverComponents/IndustriesDetails";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { usePathname, useRouter } from "next/navigation";
+import CapabilitiesDetails from "./onHoverComponents/CapabilitiesDetails";
 
 gsap.registerPlugin(ScrollToPlugin);
 
 
 export default function Navbar() {
 
-  const industriesRef = useRef()
+  const industriesRef = useRef(null)
+  const capabilitiesRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false);
   const [showIndustriesComponent, setShowIndustriesComponent] = useState(false)
+  const [showCapabilities, setShowCapabilities] = useState(true)
   const router = useRouter()
   const pathName = usePathname();  
   let scrollTimeout; 
@@ -92,9 +95,21 @@ export default function Navbar() {
                                     duration: 0.7 ,
                                     onComplete: () => {
                                         setShowIndustriesComponent(true)
+                                        setShowCapabilities(false)
                                     }   
                                 })
-                            }              
+                            }   
+                            if(targetId === "capabilities") {
+                                gsap.from(capabilitiesRef.current , {
+                                    y:300 , 
+                                    opacity: 0 , 
+                                    duration: 0.7 ,
+                                    onComplete: () => {
+                                        setShowCapabilities(true)
+                                        setShowIndustriesComponent(false)
+                                    }   
+                                })
+                            }            
                         }}
                         >
                         {nav.label}
@@ -134,7 +149,26 @@ export default function Navbar() {
                 })
             }}
             >
-                <IndustriesDetails industriesRef = {industriesRef} setShowIndustriesComponent = {setShowIndustriesComponent} />
+                <IndustriesDetails setShowIndustriesComponent = {setShowIndustriesComponent} />
+            </div>
+        )}
+
+{showCapabilities && (
+            <div
+            ref={capabilitiesRef}
+            className="bg-white min-w-screen h-screen z-[999999] absolute top-[80px] no-scrollbar pb-24 inset-0 overflow-y-scroll"
+            onMouseLeave={() => {
+                gsap.to(capabilitiesRef.current , {
+                    y: 300 , 
+                    opacity: 0 , 
+                    duration: 0.8, 
+                    onComplete: () => {
+                        setShowCapabilities(false)
+                    }
+                })
+            }}
+            >
+                <CapabilitiesDetails setShowCapabilities = {setShowCapabilities} />
             </div>
         )}
     </nav>
